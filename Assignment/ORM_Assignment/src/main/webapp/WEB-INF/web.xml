@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>AdminController</servlet-name>
+		<display-name>AdminController</display-name>
+		<description />
+		<servlet-class>com.controller.AdminController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserController</servlet-name>
+		<display-name>UserController</display-name>
+		<description />
+		<servlet-class>com.controller.UserController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserControllers</servlet-name>
+		<display-name>UserControllers</display-name>
+		<description></description>
+		<servlet-class>com.controller.UserControllers</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminControllers</servlet-name>
+		<display-name>AdminControllers</display-name>
+		<description></description>
+		<servlet-class>com.controller.AdminControllers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminController</servlet-name>
+		<url-pattern>/AdminController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserController</servlet-name>
+		<url-pattern>/UserController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserControllers</servlet-name>
+		<url-pattern>/UserControllers</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminControllers</servlet-name>
+		<url-pattern>/AdminControllers</url-pattern>
+	</servlet-mapping>
+</web-app>

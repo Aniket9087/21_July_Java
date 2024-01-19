@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="s1" class="com.st.Student">
+		<property name="student_name" value="Aniket"></property>
+		<property name="student_course" value="Java"></property>
+	</bean>
+	
+	
+	<bean id="e" class="com.st.emp_const">
+	
+	</bean>
+	
+	
+	<bean id="i" class="com.st.Inner_Ob">
+	<property name="milk">
+		<bean id="milk" class="com.st.Milk">
+			<property name="name" value="Desi Milk"></property>
+		</bean>
+	</property>
+	</bean>
+	
+	<bean id="user" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="com.st.User">
+					<property name="id" value="1"></property>
+					<property name="fname" value="Aniket"></property>
+					<property name="lname" value="Parmar"></property>
+					<property name="email" value="Aniket@gmail.com"></property>
+					<property name="mobile" value="1234567890"></property>
+				</bean>
+			
+			
+			
+			</list>
+		
+		</constructor-arg>
+	
+	
+	</bean>
+	
+	
+	
+
+
+</beans>
