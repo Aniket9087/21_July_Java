@@ -1,6 +1,9 @@
 package com.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.BookDao;
 import com.dao.CustomerDao;
 import com.model.CustomerModel;
+import com.model.bookmodel;
 
 @WebServlet("/CustomerController")
 public class CustomerController extends HttpServlet {
@@ -72,6 +77,32 @@ public class CustomerController extends HttpServlet {
 				response.sendRedirect("cust-home.jsp");
 			}
 		}
+		bookmodel bmodel=new bookmodel();
+		int sproductid=Integer.parseInt(request.getParameter("sproductid"));
+		String price=request.getParameter("price");
+		int customerid=Integer.parseInt(request.getParameter("customerid"));
+		bmodel.setCustomerid(customerid);
+		bmodel.setPrice(price);
+		bmodel.setQty(1);
+		
+		Date date=new Date();
+		SimpleDateFormat sd=new SimpleDateFormat("dd/MM/yyyy");
+		bmodel.setTotal(0);
+		int x=new BookDao().bookProduct(bmodel);
+		if(x>0)
+		{
+			request.getRequestDispatcher("cart.jsp").forward(request, response);
+			
+		}
+		else
+		{
+			System.out.println("error");
+			request.getRequestDispatcher("viewsubproduct.jsp").forward(request, response);
+			
+		}
 	}
+	
+	
+	
 
 }

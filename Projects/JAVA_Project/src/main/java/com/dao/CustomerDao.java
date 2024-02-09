@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.model.CustomerModel;
+import com.model.bookmodel;
 import com.util.DBUtil;
 
 public class CustomerDao 
@@ -80,6 +81,50 @@ public class CustomerDao
 		
 		return model;
 		
+	}
+	public String getProductName(int productid)
+	{
+		String pname=null;
+		cn=new DBUtil().getConnecttionData();
+		String qry="select * from product where productid=?";
+		try 
+		{
+			PreparedStatement st=cn.prepareStatement(qry);
+			st.setInt(1, productid);
+			ResultSet rs=st.executeQuery();
+			if(rs.next())
+			{
+				pname=rs.getString(2);
+			}
+			cn.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pname;
+	}
+	public int bookProduct(bookmodel bmodel)
+	{
+		int x=0;
+		cn=new DBUtil().getConnecttionData();
+		String qry="insert into booking(productid,customerid,bookdate,price,status) values(?,?,?,?,?)";
+		try 
+		{
+			PreparedStatement st=cn.prepareStatement(qry);
+			st.setInt(1, bmodel.getProductid());
+			st.setInt(2, bmodel.getCustomerid());
+			st.setString(3, bmodel.getBookdate());
+			st.setString(4, bmodel.getPrice());
+			st.setString(5, bmodel.getStatus());
+			x=st.executeUpdate();
+			cn.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return x;
 	}
 	
 }

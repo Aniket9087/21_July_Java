@@ -98,7 +98,6 @@
 							</ul></li>
 						<li><a href="./blog.html">Blog</a></li>
 						<li><a href="./contact.html">Contacts</a></li>
-						<li><a href="cart.jsp">Cart</a></li>
 						<li><a><%=session.getAttribute("firstname")%></a>
 							<ul class="dropdown">
 								<li><a href="index.jsp">Log Out</a></li>
@@ -125,6 +124,7 @@
 <!-- Header Section End -->
 
 <body>
+<form action="CustomerController" method="post">
 	<%
 	Connection cn = new DBUtil().getConnecttionData();
 	String qry = "select * from subproducts where sproductid=?";
@@ -169,7 +169,7 @@
 						<div class="quantity">
                                             <div class="pro-qty-2">
                                                 <input type="text"
-									value="1">
+									value="1" name="qty">
                                             </div>
                                         </div>
                                     </td>
@@ -185,7 +185,7 @@
  }
  cn.close();
  %>
-
+</form>
 
 
 
